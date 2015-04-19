@@ -1,15 +1,10 @@
 package com.alicanto.networking-designer
 
-class User {
+class Role {
 
-    String userName
-    String password
     String name
-    String lastName
-    String identityNumbre
+    String description
     Boolean status
-    Date lastAccessDate
-    Role role
 
     User createdBy
     Date createdDate
