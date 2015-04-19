@@ -14,5 +14,9 @@ class Quotation {
     Date updatedDate
 
     static constraints = {
+        createdBy(nullable: true)
+        createdDate(nullable: true)
+        updatedBy(nullable: true)
+        updatedDate(nullable: true)
     }
 }

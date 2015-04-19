@@ -6,7 +6,7 @@ class User {
     String password
     String name
     String lastName
-    String identityNumbre
+    String identityNumber
     Boolean status
     Date lastAccessDate
     Role role
@@ -17,5 +17,12 @@ class User {
     Date updatedDate
 
     static constraints = {
+        userName(unique: true)
+        lastAccessDate(nullable: true)
+        role(nullable: true)
+        createdBy(nullable: true)
+        createdDate(nullable: true)
+        updatedBy(nullable: true)
+        updatedDate(nullable: true)
     }
 }

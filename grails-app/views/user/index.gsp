@@ -28,7 +28,7 @@
 					
 						<g:sortableColumn property="createdDate" title="${message(code: 'user.createdDate.label', default: 'Created Date')}" />
 					
-						<g:sortableColumn property="identityNumbre" title="${message(code: 'user.identityNumbre.label', default: 'Identity Numbre')}" />
+						<g:sortableColumn property="identityNumber" title="${message(code: 'user.identityNumber.label', default: 'Identity Number')}" />
 					
 						<g:sortableColumn property="lastAccessDate" title="${message(code: 'user.lastAccessDate.label', default: 'Last Access Date')}" />
 					
@@ -46,7 +46,7 @@
 					
 						<td><g:formatDate date="${userInstance.createdDate}" /></td>
 					
-						<td>${fieldValue(bean: userInstance, field: "identityNumbre")}</td>
+						<td>${fieldValue(bean: userInstance, field: "identityNumber")}</td>
 					
 						<td><g:formatDate date="${userInstance.lastAccessDate}" /></td>
 					
