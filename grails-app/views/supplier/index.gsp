@@ -8,59 +8,60 @@
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#list-supplier" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
-		<div id="list-supplier" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-				<div class="message" role="status">${flash.message}</div>
-			</g:if>
-			<table>
+		<h3 class="page-header">
+			Proveedores
+			<a class="btn btn-primary pull-right" href="user-new.html"><i class="fa fa-user-plus fa-lg"></i> Nuevo proveedor</a>
+			<div class="col-md-4 pull-right">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Buscar...">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button"><i class="fa fa-search fa-lg"></i></button>
+					</span>
+				</div><!-- /input-group -->
+			</div>
+		</h3>
+		<div class="table-responsive">
+		<table class="table table-hover table-striped">
 			<thead>
-					<tr>
-					
-						<g:sortableColumn property="address" title="${message(code: 'supplier.address.label', default: 'Address')}" />
-					
-						<th><g:message code="supplier.createdBy.label" default="Created By" /></th>
-					
-						<g:sortableColumn property="createdDate" title="${message(code: 'supplier.createdDate.label', default: 'Created Date')}" />
-					
-						<g:sortableColumn property="description" title="${message(code: 'supplier.description.label', default: 'Description')}" />
-					
-						<g:sortableColumn property="name" title="${message(code: 'supplier.name.label', default: 'Name')}" />
-					
-						<g:sortableColumn property="status" title="${message(code: 'supplier.status.label', default: 'Status')}" />
-					
-					</tr>
-				</thead>
-				<tbody>
+				<tr>
+					<th>Nombre</th>
+					<th>Descripcion</th>
+					<th>Direccion</th>
+					<th>Status</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
 				<g:each in="${supplierInstanceList}" status="i" var="supplierInstance">
-					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td><g:link action="show" id="${supplierInstance.id}">${fieldValue(bean: supplierInstance, field: "address")}</g:link></td>
-					
-						<td>${fieldValue(bean: supplierInstance, field: "createdBy")}</td>
-					
-						<td><g:formatDate date="${supplierInstance.createdDate}" /></td>
-					
+					<tr>
+						<td><g:link action="show" id="${supplierInstance.id}">${fieldValue(bean: supplierInstance, field: "name")}</g:link></td>
 						<td>${fieldValue(bean: supplierInstance, field: "description")}</td>
-					
-						<td>${fieldValue(bean: supplierInstance, field: "name")}</td>
-					
-						<td><g:formatBoolean boolean="${supplierInstance.status}" /></td>
-					
+						<td>${fieldValue(bean: supplierInstance, field: "address")}</td>
+						<td>${fieldValue(bean: supplierInstance, field: "status")}</td>
+						<td><a class="btn btn-link" href="user-new.html"><i class="fa fa-edit fa-lg"></i></a></td>
 					</tr>
 				</g:each>
-				</tbody>
-			</table>
-			<div class="pagination">
-				<g:paginate total="${supplierInstanceCount ?: 0}" />
-			</div>
+			</tbody>
+		</table>
 		</div>
+		<nav>
+			<ul class="pagination">
+				<li>
+					<a href="#" aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+					</a>
+				</li>
+				<li><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li>
+					<a href="#" aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
 	</body>
 </html>

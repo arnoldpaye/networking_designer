@@ -59,16 +59,16 @@
 							<a href="index.html"><i class="fa fa-code-fork fa-lg"></i> Analisis</a>
 						</li>
 						<li class="active">
-							<a href="user-list.html"><i class="fa fa-user fa-lg"></i> Usuarios</a>
+							<a href="${createLink(controller:'user', action: 'index')}"><i class="fa fa-user fa-lg"></i> Usuarios</a>
 						</li>
 						<li>
-							<a href="role-list.html"><i class="fa fa-sitemap fa-lg"></i> Roles</a>
+							<a href="${createLink(controller:'role', action: 'index')}"><i class="fa fa-sitemap fa-lg"></i> Roles</a>
 						</li>
 						<li>
-							<a href="proveedor-list.html"><i class="fa fa-user-secret fa-lg"></i> Proveedores</a>
+							<a href="${createLink(controller:'supplier', action: 'index')}"><i class="fa fa-user-secret fa-lg"></i> Proveedores</a>
 						</li>
 						<li>
-							<a href="cootization-list.html"><i class="fa fa-money fa-lg"></i> Cotizaciones</a>
+							<a href="${createLink(controller:'quotation', action: 'index')}"><i class="fa fa-money fa-lg"></i> Cotizaciones</a>
 						</li>
 					</ul>
 				</div>

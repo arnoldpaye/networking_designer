@@ -8,59 +8,58 @@
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#list-role" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
-		<div id="list-role" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-				<div class="message" role="status">${flash.message}</div>
-			</g:if>
-			<table>
+		<h3 class="page-header">
+			Roles
+			<a class="btn btn-primary pull-right" href="user-new.html"><i class="fa fa-user-plus fa-lg"></i> Nuevo rol</a>
+			<div class="col-md-4 pull-right">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Buscar...">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button"><i class="fa fa-search fa-lg"></i></button>
+					</span>
+				</div><!-- /input-group -->
+			</div>
+		</h3>
+		<div class="table-responsive">
+		<table class="table table-hover table-striped">
 			<thead>
-					<tr>
-					
-						<th><g:message code="role.createdBy.label" default="Created By" /></th>
-					
-						<g:sortableColumn property="createdDate" title="${message(code: 'role.createdDate.label', default: 'Created Date')}" />
-					
-						<g:sortableColumn property="description" title="${message(code: 'role.description.label', default: 'Description')}" />
-					
-						<g:sortableColumn property="name" title="${message(code: 'role.name.label', default: 'Name')}" />
-					
-						<g:sortableColumn property="status" title="${message(code: 'role.status.label', default: 'Status')}" />
-					
-						<th><g:message code="role.updatedBy.label" default="Updated By" /></th>
-					
-					</tr>
-				</thead>
-				<tbody>
+				<tr>
+					<th>Rol</th>
+					<th>Descripcion</th>
+					<th>Status</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
 				<g:each in="${roleInstanceList}" status="i" var="roleInstance">
-					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td><g:link action="show" id="${roleInstance.id}">${fieldValue(bean: roleInstance, field: "createdBy")}</g:link></td>
-					
-						<td><g:formatDate date="${roleInstance.createdDate}" /></td>
-					
+					<tr>
+						<td><g:link action="show" id="${roleInstance.id}">${fieldValue(bean: roleInstance, field: "name")}</g:link></td>
 						<td>${fieldValue(bean: roleInstance, field: "description")}</td>
-					
-						<td>${fieldValue(bean: roleInstance, field: "name")}</td>
-					
-						<td><g:formatBoolean boolean="${roleInstance.status}" /></td>
-					
-						<td>${fieldValue(bean: roleInstance, field: "updatedBy")}</td>
-					
+						<td>${fieldValue(bean: roleInstance, field: "status")}</td>
+						<td><a class="btn btn-link" href="user-new.html"><i class="fa fa-edit fa-lg"></i></a></td>
 					</tr>
 				</g:each>
-				</tbody>
-			</table>
-			<div class="pagination">
-				<g:paginate total="${roleInstanceCount ?: 0}" />
-			</div>
+			</tbody>
+		</table>
 		</div>
+		<nav>
+			<ul class="pagination">
+				<li>
+					<a href="#" aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+					</a>
+				</li>
+				<li><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li>
+					<a href="#" aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
 	</body>
 </html>
