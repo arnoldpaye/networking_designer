@@ -6,15 +6,11 @@
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#create-user" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
+		<h3 class="page-header">
+			Nuevo usuario
+			<a class="btn btn-primary pull-right" href="user-list.html"><i class="fa fa-angle-left fa-lg"></i> Volver</a>
+		</h3>
 		<div id="create-user" class="content scaffold-create" role="main">
-			<h1><g:message code="default.create.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
@@ -26,12 +22,15 @@
 			</ul>
 			</g:hasErrors>
 			<g:form url="[resource:userInstance, action:'save']" >
-				<fieldset class="form">
+				<fieldset class="col-lg-8  form-horizontal">
 					<g:render template="form"/>
 				</fieldset>
-				<fieldset class="buttons">
-					<g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
-				</fieldset>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="submit" class="btn btn-primary"><i class="fa fa-save fa-lg"></i> Guardar</button>
+						<button type="submit" class="btn btn-default"><i class="fa fa-close fa-lg"></i> Cancelar</button>
+					</div>
+				</div>
 			</g:form>
 		</div>
 	</body>

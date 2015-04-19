@@ -6,4 +6,8 @@ class UserController {
         params.max = Math.min(max ?: 10, 100)
         respond User.list(params), model: [userInstanceCount: User.count()]
     }
+
+    def create() {
+        respond new User(params)
+    }
 }

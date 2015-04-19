@@ -2,111 +2,73 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'createdBy', 'error')} required">
-	<label for="createdBy">
-		<g:message code="user.createdBy.label" default="Created By" />
+
+<div class="form-group">
+	<label class="col-sm-2 control-label" for="userName">
+		Usuario
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="createdBy" name="createdBy.id" from="${com.alicanto.networking_designer.User.list()}" optionKey="id" required="" value="${userInstance?.createdBy?.id}" class="many-to-one"/>
-
+	<div class="col-sm-10">
+		<g:textField name="userName" required="" value="${userInstance?.userName}" class="form-control" placeholder="ej. jperez"/>
+	</div>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'createdDate', 'error')} required">
-	<label for="createdDate">
-		<g:message code="user.createdDate.label" default="Created Date" />
+<div class="form-group">
+	<label class="col-sm-2 control-label" for="password">
+		Password
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="createdDate" precision="day"  value="${userInstance?.createdDate}"  />
-
+	<div class="col-sm-10">
+		<g:textField name="password" required="" value="${userInstance?.password}" class="form-control" placeholder="Password"/>
+	</div>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'identityNumbre', 'error')} required">
-	<label for="identityNumbre">
-		<g:message code="user.identityNumbre.label" default="Identity Numbre" />
+<div class="form-group">
+	<label class="col-sm-2 control-label" for="name">
+		Nombre
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="identityNumbre" required="" value="${userInstance?.identityNumbre}"/>
-
+	<div class="col-sm-10">
+		<g:textField name="name" required="" value="${userInstance?.name}" class="form-control" placeholder="ej. Juan"/>
+	</div>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'lastAccessDate', 'error')} required">
-	<label for="lastAccessDate">
-		<g:message code="user.lastAccessDate.label" default="Last Access Date" />
+<div class="form-group">
+	<label class="col-sm-2 control-label" for="lastName">
+		Apellido Paterno
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="lastAccessDate" precision="day"  value="${userInstance?.lastAccessDate}"  />
-
+	<div class="col-sm-10">
+		<g:textField name="lastName" required="" value="${userInstance?.lastName}" class="form-control" placeholder="ej. Perez"/>
+	</div>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'lastName', 'error')} required">
-	<label for="lastName">
-		<g:message code="user.lastName.label" default="Last Name" />
+<div class="form-group">
+	<label class="col-sm-2 control-label" for="identityNumber">
+		CI
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="lastName" required="" value="${userInstance?.lastName}"/>
-
+	<div class="col-sm-10">
+		<g:textField name="identityNumbre" required="" value="${userInstance?.identityNumber}" class="form-control" placeholder="ej. 1234567"/>
+	</div>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'name', 'error')} required">
-	<label for="name">
-		<g:message code="user.name.label" default="Name" />
+<div class="form-group">
+	<label class="col-sm-2 control-label" for="role">
+		Rol
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="name" required="" value="${userInstance?.name}"/>
-
+	<div class="col-sm-10">
+		<g:select id="role" name="role.id" from="${com.alicanto.networking_designer.Role.list()}" optionKey="id" optionValue="name" required="" value="${userInstance?.role?.id}" class="form-control"/>
+	</div>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'password', 'error')} required">
-	<label for="password">
-		<g:message code="user.password.label" default="Password" />
+<div class="form-group">
+	<label class="col-sm-2 control-label" for="status">
+		Status
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="password" required="" value="${userInstance?.password}"/>
-
+	<div class="col-sm-10">
+		<g:checkBox name="status" value="${userInstance?.status}" class="form-control" />
+	</div>
 </div>
-
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'role', 'error')} required">
-	<label for="role">
-		<g:message code="user.role.label" default="Role" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="role" name="role.id" from="${com.alicanto.networking_designer.Role.list()}" optionKey="id" required="" value="${userInstance?.role?.id}" class="many-to-one"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'status', 'error')} ">
-	<label for="status">
-		<g:message code="user.status.label" default="Status" />
-		
-	</label>
-	<g:checkBox name="status" value="${userInstance?.status}" />
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'updatedBy', 'error')} required">
-	<label for="updatedBy">
-		<g:message code="user.updatedBy.label" default="Updated By" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="updatedBy" name="updatedBy.id" from="${com.alicanto.networking_designer.User.list()}" optionKey="id" required="" value="${userInstance?.updatedBy?.id}" class="many-to-one"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'updatedDate', 'error')} required">
-	<label for="updatedDate">
-		<g:message code="user.updatedDate.label" default="Updated Date" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:datePicker name="updatedDate" precision="day"  value="${userInstance?.updatedDate}"  />
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'userName', 'error')} required">
-	<label for="userName">
-		<g:message code="user.userName.label" default="User Name" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="userName" required="" value="${userInstance?.userName}"/>
-
-</div>
-
