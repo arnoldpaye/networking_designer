@@ -8,59 +8,63 @@
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#list-user" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
-		<div id="list-user" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-				<div class="message" role="status">${flash.message}</div>
-			</g:if>
-			<table>
+		<h3 class="page-header">
+			Usuarios
+			<a class="btn btn-primary pull-right" href="user-new.html"><i class="fa fa-user-plus fa-lg"></i> Nuevo usuario</a>
+			<div class="col-md-4 pull-right">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Buscar...">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button"><i class="fa fa-search fa-lg"></i></button>
+					</span>
+				</div><!-- /input-group -->
+			</div>
+		</h3>
+		<div class="table-responsive">
+		<table class="table table-hover table-striped">
 			<thead>
-					<tr>
-					
-						<th><g:message code="user.createdBy.label" default="Created By" /></th>
-					
-						<g:sortableColumn property="createdDate" title="${message(code: 'user.createdDate.label', default: 'Created Date')}" />
-					
-						<g:sortableColumn property="identityNumber" title="${message(code: 'user.identityNumber.label', default: 'Identity Number')}" />
-					
-						<g:sortableColumn property="lastAccessDate" title="${message(code: 'user.lastAccessDate.label', default: 'Last Access Date')}" />
-					
-						<g:sortableColumn property="lastName" title="${message(code: 'user.lastName.label', default: 'Last Name')}" />
-					
-						<g:sortableColumn property="name" title="${message(code: 'user.name.label', default: 'Name')}" />
-					
-					</tr>
-				</thead>
-				<tbody>
+				<tr>
+					<th>Nombre</th>
+					<th>Apellido Paterno</th>
+					<th>CI</th>
+					<th>Rol</th>
+					<th>Status</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
 				<g:each in="${userInstanceList}" status="i" var="userInstance">
-					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td><g:link action="show" id="${userInstance.id}">${fieldValue(bean: userInstance, field: "createdBy")}</g:link></td>
-					
-						<td><g:formatDate date="${userInstance.createdDate}" /></td>
-					
-						<td>${fieldValue(bean: userInstance, field: "identityNumber")}</td>
-					
-						<td><g:formatDate date="${userInstance.lastAccessDate}" /></td>
-					
+					<tr>
+						<td><g:link action="show" id="${userInstance.id}">${fieldValue(bean: userInstance, field: "userName")}</g:link></td>
 						<td>${fieldValue(bean: userInstance, field: "lastName")}</td>
-					
-						<td>${fieldValue(bean: userInstance, field: "name")}</td>
-					
+						<td>${fieldValue(bean: userInstance, field: "identityNumber")}</td>
+						<td>${fieldValue(bean: userInstance, field: "role.name")}</td>
+						<td>${fieldValue(bean: userInstance, field: "status")}</td>
+						<td>${fieldValue(bean: userInstance, field: "lastAccessDate")}</td>
+						<td><a class="btn btn-link" href="user-new.html"><i class="fa fa-edit fa-lg"></i></a></td>
 					</tr>
 				</g:each>
-				</tbody>
-			</table>
-			<div class="pagination">
-				<g:paginate total="${userInstanceCount ?: 0}" />
-			</div>
+			</tbody>
+		</table>
 		</div>
+		<nav>
+			<ul class="pagination">
+				<li>
+					<a href="#" aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+					</a>
+				</li>
+				<li><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li>
+					<a href="#" aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
 	</body>
 </html>
