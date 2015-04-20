@@ -8,7 +8,9 @@
 	<body>
 		<h3 class="page-header">
 			Nuevo usuario
-			<a class="btn btn-primary pull-right" href="user-list.html"><i class="fa fa-angle-left fa-lg"></i> Volver</a>
+			<g:link class="btn btn-primary pull-right" action="index">
+				<i class="fa fa-angle-left fa-lg"></i> Volver
+			</g:link>
 		</h3>
 		<div id="create-user" class="content scaffold-create" role="main">
 			<g:if test="${flash.message}">
@@ -27,8 +29,11 @@
 				</fieldset>
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
-						<button type="submit" class="btn btn-primary"><i class="fa fa-save fa-lg"></i> Guardar</button>
-						<button type="submit" class="btn btn-default"><i class="fa fa-close fa-lg"></i> Cancelar</button>
+						<g:submitButton name="Guardar" class="btn btn-primary">
+						</g:submitButton>
+						<g:link class="btn btn-default" action="index">
+							<i class="fa fa-close fa-lg"></i> Cancelar
+						</g:link>
 					</div>
 				</div>
 			</g:form>

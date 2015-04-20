@@ -19,7 +19,7 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<div class="col-sm-10">
-		<g:textField name="password" required="" value="${userInstance?.password}" class="form-control" placeholder="Password"/>
+		<g:passwordField name="password" required="" value="${userInstance?.password}" class="form-control" placeholder="Password"/>
 	</div>
 </div>
 
@@ -49,7 +49,7 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<div class="col-sm-10">
-		<g:textField name="identityNumbre" required="" value="${userInstance?.identityNumber}" class="form-control" placeholder="ej. 1234567"/>
+		<g:textField name="identityNumber" required="" value="${userInstance?.identityNumber}" class="form-control" placeholder="ej. 1234567"/>
 	</div>
 </div>
 
