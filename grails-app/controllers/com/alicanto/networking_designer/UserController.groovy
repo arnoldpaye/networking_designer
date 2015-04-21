@@ -4,7 +4,7 @@ import grails.transaction.Transactional
 
 class UserController {
 
-    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+    static allowedMethods = [save: "POST", update: "PUT", delete: "POST"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -28,5 +28,24 @@ class UserController {
             }
             '*' { respond userInstance, [status: CREATED] }
         }
+    }
+
+    @Transactional
+    def update(User userInstance) {
+        if (userInstance == null) {
+            redirect action: "index", method: "GET"
+        }
+        userInstance.save flush: true
+        request.withFormat {
+            form multipartForm {
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
+                redirect userInstance
+            }
+            '*' { respond userInstance, [status: OK] }
+        }
+    }
+
+    def show(User userInstance) {
+        respond userInstance
     }
 }

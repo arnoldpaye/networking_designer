@@ -24,7 +24,7 @@
 			</ul>
 			</g:hasErrors>
 			<g:form url="[resource:userInstance, action:'save']" >
-				<fieldset class="col-lg-8  form-horizontal">
+				<fieldset class="col-lg-8 form-horizontal">
 					<g:render template="form"/>
 				</fieldset>
 				<div class="form-group">
