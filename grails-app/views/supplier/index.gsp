@@ -34,11 +34,11 @@
 			<tbody>
 				<g:each in="${supplierInstanceList}" status="i" var="supplierInstance">
 					<tr>
-						<td><g:link action="show" id="${supplierInstance.id}">${fieldValue(bean: supplierInstance, field: "name")}</g:link></td>
+						<td>${fieldValue(bean: supplierInstance, field: "name")}</td>
 						<td>${fieldValue(bean: supplierInstance, field: "description")}</td>
 						<td>${fieldValue(bean: supplierInstance, field: "address")}</td>
 						<td>${fieldValue(bean: supplierInstance, field: "status")}</td>
-						<td><a class="btn btn-link" href="user-new.html"><i class="fa fa-edit fa-lg"></i></a></td>
+						<td><g:link action="show" id="${supplierInstance.id}" class="btn btn-link"><i class="fa fa-edit fa-lg"></i></g:link></td>
 					</tr>
 				</g:each>
 			</tbody>

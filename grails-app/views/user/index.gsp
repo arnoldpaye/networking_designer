@@ -37,13 +37,12 @@
 			<tbody>
 				<g:each in="${userInstanceList}" status="i" var="userInstance">
 					<tr>
-						<td><g:link action="show" id="${userInstance.id}">${fieldValue(bean: userInstance, field: "userName")}</g:link></td>
+						<td>${fieldValue(bean: userInstance, field: "userName")}</td>
 						<td>${fieldValue(bean: userInstance, field: "lastName")}</td>
 						<td>${fieldValue(bean: userInstance, field: "identityNumber")}</td>
 						<td>${fieldValue(bean: userInstance, field: "role.name")}</td>
 						<td>${fieldValue(bean: userInstance, field: "status")}</td>
-						<td>${fieldValue(bean: userInstance, field: "lastAccessDate")}</td>
-						<td><a class="btn btn-link" href="user-new.html"><i class="fa fa-edit fa-lg"></i></a></td>
+						<td><g:link action="show" id="${userInstance.id}" class="btn btn-link"><i class="fa fa-edit fa-lg"></i></g:link></td>
 					</tr>
 				</g:each>
 			</tbody>

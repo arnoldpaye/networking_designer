@@ -33,10 +33,10 @@
 			<tbody>
 				<g:each in="${roleInstanceList}" status="i" var="roleInstance">
 					<tr>
-						<td><g:link action="show" id="${roleInstance.id}">${fieldValue(bean: roleInstance, field: "name")}</g:link></td>
+						<td>${fieldValue(bean: roleInstance, field: "name")}</td>
 						<td>${fieldValue(bean: roleInstance, field: "description")}</td>
 						<td>${fieldValue(bean: roleInstance, field: "status")}</td>
-						<td><a class="btn btn-link" href="user-new.html"><i class="fa fa-edit fa-lg"></i></a></td>
+						<td><g:link action="show" id="${roleInstance.id}" class="btn btn-link"><i class="fa fa-edit fa-lg"></i></g:link></td>
 					</tr>
 				</g:each>
 			</tbody>
