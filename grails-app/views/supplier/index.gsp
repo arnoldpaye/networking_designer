@@ -10,7 +10,9 @@
 	<body>
 		<h3 class="page-header">
 			Proveedores
-			<a class="btn btn-primary pull-right" href="user-new.html"><i class="fa fa-user-plus fa-lg"></i> Nuevo proveedor</a>
+			<g:link class="btn btn-primary pull-right" action="create">
+				<i class="fa fa-user-plus fa-lg"></i> Nuevo proveedor</a>
+			</g:link>
 			<div class="col-md-4 pull-right">
 				<div class="input-group">
 					<input type="text" class="form-control" placeholder="Buscar...">
