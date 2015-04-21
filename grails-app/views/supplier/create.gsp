@@ -6,15 +6,13 @@
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#create-supplier" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
+		<h3 class="page-header">
+			Nuevo proveedor
+			<g:link class="btn btn-primary pull-right" action="index">
+				<i class="fa fa-angle-left fa-lg"></i> Volver
+			</g:link>
+		</h3>
 		<div id="create-supplier" class="content scaffold-create" role="main">
-			<h1><g:message code="default.create.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
@@ -26,12 +24,18 @@
 			</ul>
 			</g:hasErrors>
 			<g:form url="[resource:supplierInstance, action:'save']" >
-				<fieldset class="form">
+				<fieldset class="col-lg-8 form-horizontal">
 					<g:render template="form"/>
 				</fieldset>
-				<fieldset class="buttons">
-					<g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
-				</fieldset>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<g:submitButton name="Guardar" class="btn btn-primary">
+						</g:submitButton>
+						<g:link class="btn btn-default" action="index">
+							<i class="fa fa-close fa-lg"></i> Cancelar
+						</g:link>
+					</div>
+				</div>
 			</g:form>
 		</div>
 	</body>

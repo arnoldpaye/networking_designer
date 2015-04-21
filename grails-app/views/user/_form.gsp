@@ -2,7 +2,6 @@
 
 
 
-
 <div class="form-group">
 	<label class="col-sm-2 control-label" for="userName">
 		Usuario
@@ -66,7 +65,6 @@
 <div class="form-group">
 	<label class="col-sm-2 control-label" for="status">
 		Status
-		<span class="required-indicator">*</span>
 	</label>
 	<div class="col-sm-10">
 		<g:checkBox name="status" value="${userInstance?.status}" class="form-control" />

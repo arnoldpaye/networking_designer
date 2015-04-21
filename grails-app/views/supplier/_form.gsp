@@ -2,75 +2,41 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: supplierInstance, field: 'address', 'error')} required">
-	<label for="address">
-		<g:message code="supplier.address.label" default="Address" />
+<div class="form-group">
+	<label class="col-sm-2 control-label" for="name">
+		Nombre
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="address" required="" value="${supplierInstance?.address}"/>
-
+	<div class="col-sm-10">
+		<g:textField name="name" required="" value="${supplierInstance?.name}" class="form-control"/>
+	</div>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: supplierInstance, field: 'createdBy', 'error')} required">
-	<label for="createdBy">
-		<g:message code="supplier.createdBy.label" default="Created By" />
+<div class="form-group">
+	<label class="col-sm-2 control-label" for="description">
+		Descripcion
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="createdBy" name="createdBy.id" from="${com.alicanto.networking_designer.User.list()}" optionKey="id" required="" value="${supplierInstance?.createdBy?.id}" class="many-to-one"/>
-
+	<div class="col-sm-10">
+		<g:textField name="description" required="" value="${supplierInstance?.description}" class="form-control"/>
+	</div>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: supplierInstance, field: 'createdDate', 'error')} required">
-	<label for="createdDate">
-		<g:message code="supplier.createdDate.label" default="Created Date" />
+<div class="form-group">
+	<label class="col-sm-2 control-label" for="address">
+		Direccion
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="createdDate" precision="day"  value="${supplierInstance?.createdDate}"  />
-
+	<div class="col-sm-10">
+		<g:textField name="address" required="" value="${supplierInstance?.address}" class="form-control"/>
+	</div>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: supplierInstance, field: 'description', 'error')} required">
-	<label for="description">
-		<g:message code="supplier.description.label" default="Description" />
-		<span class="required-indicator">*</span>
+<div class="form-group">
+	<label class="col-sm-2 control-label" for="status">
+		Status
 	</label>
-	<g:textField name="description" required="" value="${supplierInstance?.description}"/>
-
+	<div class="col-sm-10">
+		<g:checkBox name="status" value="${supplierInstance?.status}" class="form-control" />
+	</div>
 </div>
-
-<div class="fieldcontain ${hasErrors(bean: supplierInstance, field: 'name', 'error')} required">
-	<label for="name">
-		<g:message code="supplier.name.label" default="Name" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="name" required="" value="${supplierInstance?.name}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: supplierInstance, field: 'status', 'error')} ">
-	<label for="status">
-		<g:message code="supplier.status.label" default="Status" />
-		
-	</label>
-	<g:checkBox name="status" value="${supplierInstance?.status}" />
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: supplierInstance, field: 'updatedBy', 'error')} required">
-	<label for="updatedBy">
-		<g:message code="supplier.updatedBy.label" default="Updated By" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="updatedBy" name="updatedBy.id" from="${com.alicanto.networking_designer.User.list()}" optionKey="id" required="" value="${supplierInstance?.updatedBy?.id}" class="many-to-one"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: supplierInstance, field: 'updatedDate', 'error')} required">
-	<label for="updatedDate">
-		<g:message code="supplier.updatedDate.label" default="Updated Date" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:datePicker name="updatedDate" precision="day"  value="${supplierInstance?.updatedDate}"  />
-
-</div>
-
